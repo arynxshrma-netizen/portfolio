@@ -5,6 +5,24 @@ import Head from 'next/head';
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const testimonials = [
+    {
+      quote: "Aryan's editing elevated our brand video to professional cinema level. Highly recommended!",
+      author: "Sarah Chen",
+      role: "Marketing Director, TechFlow AI"
+    },
+    {
+      quote: "Fast turnaround, premium quality, perfect color grading. Best editor we've worked with.",
+      author: "James Wilson",
+      role: "Producer, Wilson Productions"
+    },
+    {
+      quote: "Our YouTube views tripled after Aryan's editing. The pacing and sound design are exceptional.",
+      author: "Maya Patel",
+      role: "Content Manager, Creator Economy"
+    }
+  ];
+
   const projects = [
     {
       id: 1,
@@ -106,10 +124,10 @@ export default function Home() {
               Based in India, working with clients across Europe, US, and Canada.
             </p>
             <a 
-              href="#work"
+              href="#showreel"
               className="inline-flex items-center gap-2 btn-primary"
             >
-              View Work <ArrowRight size={20} />
+              Watch Showreel <ArrowRight size={20} />
             </a>
 
             {/* Stats */}
@@ -125,6 +143,63 @@ export default function Home() {
               <div className="text-center">
                 <div className="text-3xl font-bold text-red-600">3</div>
                 <p className="text-gray-400 mt-2">Continents</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Showreel Section */}
+        <section id="showreel" className="py-20 px-6 border-t border-white/10">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-bold mb-12 text-center">My Showreel</h2>
+            <div className="bg-gray-900 rounded-lg overflow-hidden aspect-video flex items-center justify-center border-2 border-red-600/30">
+              <div className="text-center">
+                <div className="text-6xl mb-4">🎬</div>
+                <p className="text-gray-400 mb-2">60-90 Second Showreel</p>
+                <p className="text-sm text-gray-500">[Add your showreel video here - mp4/webm]</p>
+              </div>
+            </div>
+            <p className="text-center text-gray-400 mt-6">Best of my editing, motion graphics, and color grading work</p>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section className="py-20 px-6 border-t border-white/10 bg-gray-900/50">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-bold mb-12">About Me</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                  I'm a professional video editor and motion graphics designer based in India, serving clients across Europe, the US, and Canada. With 5+ years of experience, I specialize in cinematic editing, premium color grading, and compelling motion design.
+                </p>
+                <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                  My work combines technical expertise with creative storytelling. I use cutting-edge tools like Premiere Pro, After Effects, and DaVinci Resolve to bring visions to life.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-red-600">What I Offer</h3>
+                <ul className="space-y-4 text-gray-300">
+                  <li className="flex gap-3">
+                    <span className="text-red-600">✓</span>
+                    <span>Cinematic video editing for commercials, brands, and social media</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-red-600">✓</span>
+                    <span>Motion graphics and title sequence animations</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-red-600">✓</span>
+                    <span>Professional color grading and visual effects</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-red-600">✓</span>
+                    <span>Sound design and audio optimization</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-red-600">✓</span>
+                    <span>Multi-format delivery (4K, social media, streaming)</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -172,6 +247,63 @@ export default function Home() {
               >
                 View All Projects <ArrowRight size={20} />
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Before/After Gallery */}
+        <section className="py-20 px-6 border-t border-white/10 bg-gray-900/50">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 text-center">Color Grading Transformations</h2>
+            <p className="text-center text-gray-400 mb-16">Watch how professional color grading elevates footage</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                { name: "Documentary - Warm Grade", before: "Flat, cool lighting", after: "Warm, cinematic look" },
+                { name: "Commercial - Vibrant Grade", before: "Muted colors", after: "Punchy, vibrant colors" },
+                { name: "Brand Film - Teal & Orange", before: "Neutral tones", after: "Premium teal/orange" },
+                { name: "Interview - Enhanced Skin", before: "Flat skin tone", after: "Glowing complexion" }
+              ].map((item, idx) => (
+                <div key={idx} className="border border-white/10 rounded-lg overflow-hidden">
+                  <div className="bg-gray-800 aspect-video flex items-center justify-center relative">
+                    <div className="text-center">
+                      <div className="text-4xl mb-3">🎨</div>
+                      <p className="text-gray-400 text-sm">{item.name}</p>
+                    </div>
+                    <div className="absolute bottom-3 left-3 right-3 flex gap-2 text-xs">
+                      <span className="bg-gray-700 px-2 py-1 rounded">{item.before}</span>
+                      <span className="bg-red-600/30 px-2 py-1 rounded">{item.after}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-20 px-6 border-t border-white/10">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-4xl font-bold mb-16 text-center">Client Testimonials</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, idx) => (
+                <div 
+                  key={idx}
+                  className="bg-gray-900/50 border border-white/10 rounded-lg p-8 hover:border-red-600/50 transition"
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="text-yellow-400">★</span>
+                    ))}
+                  </div>
+                  <p className="text-gray-300 mb-6 italic">"{testimonial.quote}"</p>
+                  <div>
+                    <p className="font-bold">{testimonial.author}</p>
+                    <p className="text-gray-500 text-sm">{testimonial.role}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
